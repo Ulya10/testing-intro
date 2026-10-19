@@ -1,9 +1,3 @@
-// function notImplemented() {
-//   throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
-// }
-
-// const products = require('../../src/data/products');
-
 function addToCart(cart, product, qty = 1) {
   if (qty === 0 || qty > product.stock) {
     throw new RangeError;
