@@ -1,8 +1,16 @@
-function notImplemented() {
-  throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
-}
+// function notImplemented() {
+//   throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
+// }
 
-function addToCart() { return notImplemented(); }
+function addToCart(cart, item, quantity = 1) { 
+  if (cart.length === 0){
+    cart.push({ ...item, quantity: quantity })
+  } else {
+    
+  }
+  
+  return cart; 
+}
 function changeQuantity() { return notImplemented(); }
 function removeFromCart() { return notImplemented(); }
 function calculateCartSubtotal() { return notImplemented(); }
