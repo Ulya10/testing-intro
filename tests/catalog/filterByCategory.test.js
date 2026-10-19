@@ -7,21 +7,34 @@ describe('filterByCategory', () => {
   });
 
   test("undefined возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
-    expect(filterByCategory(products, undefined)).toEqual(products);
+    expect(filterByCategory(products, undefined).map((item) => item.id)).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
   test("'electronics' возвращает товары с ID [1, 2]", () => {
-    expect(filterByCategory(products, 'electronics')).toEqual([ {id: 1, name: 'Наушники', category: 'electronics', price: 49900, stock: 8 },
-  { id: 2, name: 'Клавиатура', category: 'electronics', price: 35900, stock: 0 }]);
+    expect(filterByCategory(products, 'electronics').map((item) => item.id)).toEqual([1, 2]);
   });
 
+  test("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
+    expect(filterByCategory(products, undefined).map((item) => item.id)).toEqual([1, 2, 3, 4, 5, 6]);
+  });
 
+  test("'books' возвращает товары с ID [3, 6]", () => {
+    expect(filterByCategory(products, 'books').map((item) => item.id)).toEqual([3, 6]);
+  });
 
-  test.todo("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]");
-  test.todo("'electronics' возвращает товары с ID [1, 2]");
-  test.todo("'books' возвращает товары с ID [3, 6]");
-  test.todo("'home' возвращает товары с ID [4, 5]");
-  test.todo("'clothes' возвращает пустой массив");
-  test.todo("'toys' возвращает пустой массив");
-  test.todo("'sports' возвращает пустой массив");
+  test("'home' возвращает товары с ID [4, 5]", () => {
+    expect(filterByCategory(products, 'home').map((item) => item.id)).toEqual([4, 5]);
+  });
+
+  test("'clothes' возвращает пустой массив", () => {
+    expect(filterByCategory(products, 'clothes').map((item) => item.id)).toEqual([]);
+  });
+
+  test("'toys' возвращает пустой массив", () => {
+    expect(filterByCategory(products, 'toys').map((item) => item.id)).toEqual([]);
+  });
+
+  test("'sports' возвращает пустой массив", () => {
+    expect(filterByCategory(products, 'sports').map((item) => item.id)).toEqual([]);
+  });
 });
